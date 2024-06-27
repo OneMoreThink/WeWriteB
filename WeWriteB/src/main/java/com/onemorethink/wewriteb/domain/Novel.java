@@ -1,10 +1,10 @@
 package com.onemorethink.wewriteb.domain;
 
 
+import com.onemorethink.wewriteb.config.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -14,7 +14,7 @@ import java.util.List;
         @Index(columnList = "createdAt")
 })
 @Entity
-public class Novel {
+public class Novel extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,12 +35,5 @@ public class Novel {
 
     @OneToMany(mappedBy = "novel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Chapter> chapters;
-
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(nullable = true)
-    private LocalDateTime updatedAt;
-
 
 }
