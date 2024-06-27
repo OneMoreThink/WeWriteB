@@ -1,15 +1,15 @@
 package com.onemorethink.wewriteb.domain;
 
 
+import com.onemorethink.wewriteb.config.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
-import java.time.LocalDateTime;
 
 @Getter
 @ToString
 @Entity
-public class Chapter {
+public class Chapter extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +25,4 @@ public class Chapter {
     @JoinColumn(name = "novel_id", nullable = false)
     private Novel novel;
 
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(nullable = true)
-    private LocalDateTime updatedAt;
 }

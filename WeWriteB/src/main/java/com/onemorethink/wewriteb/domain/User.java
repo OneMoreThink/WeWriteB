@@ -1,9 +1,9 @@
 package com.onemorethink.wewriteb.domain;
 
+import com.onemorethink.wewriteb.config.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
-import java.time.LocalDateTime;
 
 
 @Getter
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
         @Index(columnList = "createdAt")
 })
 @Entity
-public class User {
+public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +32,4 @@ public class User {
 //    @OneToMany(mappedBy = "author")
 //    private List<Novel> novels;
 
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(nullable = true)
-    private LocalDateTime updateAt;
 }
