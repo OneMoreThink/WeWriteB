@@ -30,8 +30,8 @@ public class User {
     @Column(nullable = false, unique = true)
     private String nickname;
 
-    @OneToMany(mappedBy = "author")
-    private List<Novel> novels;
+//    @OneToMany(mappedBy = "author")
+//    private List<Novel> novels;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

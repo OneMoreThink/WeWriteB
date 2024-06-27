@@ -8,8 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Table(indexes = {
-        @Index(columnList = "email"),
-        @Index(columnList = "nickname"),
+        @Index(columnList = "title"),
         @Index(columnList = "createdAt")
 })
 @Entity
