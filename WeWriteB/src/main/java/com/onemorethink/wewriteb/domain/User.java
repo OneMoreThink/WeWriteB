@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Getter
