@@ -1,11 +1,9 @@
 package com.onemorethink.wewriteb.domain;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
-import java.time.LocalDateTime;
-import java.util.List;
-
 
 @Getter
 @ToString
@@ -15,27 +13,30 @@ import java.util.List;
         @Index(columnList = "createdAt")
 })
 @Entity
-public class User {
+public class Novel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false, unique = true)
-    private String nickname;
-
-    @OneToMany(mappedBy = "author")
-    private List<Novel> novels;
+    /* @ManyToOne
+     * JoinColum 외래키로 사용될 열 이름을 지정
+     * @JoinColumn(name = "author_id", nullable = false)
+     * private User author;
+     * 로그인 기능이 붙었을 때 해당 필드 활성화
+     */
 
     @Column(nullable = false)
-    private LocalDateTime createdAt;
+    private String title;
+
+    @Column(nullable = false)
+    private String content;
+
+    @Column(nullable = false)
+    private String createdAt;
 
     @Column(nullable = true)
-    private LocalDateTime updateAt;
+    private String updatedAt;
+
+
 }
