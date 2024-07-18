@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @ToString
@@ -45,5 +46,17 @@ public class Novel extends BaseEntity {
 
     public static Novel of(String title, String content){
         return new Novel(title, content);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if  (!(o instanceof Novel novel)) return false;
+        return id != null && Objects.equals(id, novel.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
